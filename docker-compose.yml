@@ -91,10 +91,7 @@ services:
       traefik.enable: "true"
       traefik.docker.network: dokploy-network
       traefik.http.services.cvat.loadbalancer.server.port: "8080"
-      traefik.http.routers.cvat.rule: >-
-        Host(`cvat.busethai.com`) &&
-        (PathPrefix(`/api/`) || PathPrefix(`/static/`) || PathPrefix(`/admin`)
-          || PathPrefix(`/django-rq`))
+       traefik.http.routers.cvat.rule: "Host(`cvat.busethai.com`) && (PathPrefix(`/api/`) || PathPrefix(`/static/`) || PathPrefix(`/admin`) || PathPrefix(`/django-rq`))"
       traefik.http.routers.cvat.entrypoints: websecure
       traefik.http.routers.cvat.tls.certresolver: letsencrypt
       traefik.http.routers.cvat.priority: "100"
